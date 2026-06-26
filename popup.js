@@ -111,3 +111,24 @@ async function getGeminiSummary(rawText, summaryType, geminiApiKey) {
         "No summary returned."
     );
 }
+
+document.getElementById("copy-btn").addEventListener("click",()=>{
+    const summaryType=document.getElementById("result").innerText;
+    if(summaryType && summaryType.trim() !==""){
+        navigator.clipboard
+        .writeText(summaryType)
+        .then(()=>{
+            const copyBtn=document.getElementById("copy-btn");
+            const originalText=copyBtn.innerText;
+
+            copyBtn.innerText="Copied!";
+            setTimeout(()=>{
+                copyBtn.innerText=originalText;
+            },2000);
+        })
+        .catch(error=>{
+            console.log("Failed to copy text: ",err);
+        });
+    }
+     
+})
