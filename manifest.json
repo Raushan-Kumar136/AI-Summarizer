@@ -20,7 +20,7 @@
         "service_worker":"background.js"
     },
 
-    "option_page":"option.html",
+    "options_page":"option.html",
     "host_permissions":["<all_urls>"]
 
 }
